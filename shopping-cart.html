@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="header-container" style="background: white">
+      <div class="header">
+        <div class="logo">
+          <img
+            src="./RedStore_Img/images/logo.png"
+            alt=""
+            style="width: 100px; height: 50px; margin-top: 30px"
+          />
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./allproduct.html">Product</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Account</a></li>
+            <li>
+              <a href=""><i class="fas fa-shopping-bag"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <table class="cart" style="margin: auto">
+      <thead>
+        <tr class="header-cart">
+          <th colspan="2">Items</th>
+          <th>Price</th>
+          <th>Quality</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="input">
+          <td class="image">
+            <img
+              src="./RedStore_Img/images/product-1.jpg"
+              alt=""
+              width="100"
+              height="100"
+            />
+          </td>
+          <td class="name">
+            <span style="width: fit-content">Red Printed-Tshirt</span>
+          </td>
+          <td class="price" style="width: fit-content">50$</td>
+          <td class="quality">
+            <input type="number" class="number" value="1" />
+          </td>
+          <td class="total">50$</td>
+          <td><button class="btn btn-danger">Remove</button></td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th>Total Price</th>
+          <th colspan="5" class="totalprice" style="width: fit-content">0$</th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="brand" style="margin-top: 220px">
+      <img src="./RedStore_Img/images/logo-coca-cola.png" alt="" />
+      <img src="./RedStore_Img/images/logo-godrej.png" alt="" />
+      <img src="./RedStore_Img/images/logo-oppo.png" alt="" />
+      <img src="./RedStore_Img/images/logo-paypal.png" alt="" />
+      <img src="./RedStore_Img/images/logo-philips.png" alt="" />
+      <img src="./RedStore_Img/images/logo-white.png" alt="" />
+    </div>
+  </body>
+  <script src="./shopping-cart.js"></script>
+</html>
