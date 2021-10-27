@@ -11,6 +11,20 @@
     />
 
     <link rel="stylesheet" href="./style.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+    <script>
+  const firebaseApp = firebase.initializeApp({  
+    apiKey: "AIzaSyDCkDxI6XPE5k4Rt6xwVMFPjVI5Qwb3mWQ",
+    authDomain: "webshopping-a14ae.firebaseapp.com",
+    projectId: "webshopping-a14ae",
+    storageBucket: "webshopping-a14ae.appspot.com",
+    messagingSenderId: "373231907805",
+    appId: "1:373231907805:web:e0e29210966f0eaabc3c34" });
+   const db = firebaseApp.firestore();
+  const auth = firebaseApp.auth();
+</script>
   </head>
   <body>
     <div class="header-container" style="background: white;">
@@ -46,99 +60,16 @@
     <div class="content" style="margin-bottom: 60px;">
         <div class="details">
             <div class="left" style="width: 40%;">
-                <div class="main"><img src="./RedStore_Img/images/gallery-1.jpg" alt="" style="width:100%;height: 500px;" class="main-detail"> </div>
                 
-                <div class="under" style="width: 100%; display: flex;">
-                    <div><img src="./RedStore_Img/images/gallery-1.jpg" alt="" class="detail"></div>
-                    <div><img src="./RedStore_Img/images/gallery-2.jpg" alt="" class="detail"></div>
-                    <div><img src="./RedStore_Img/images/gallery-3.jpg" alt="" class="detail"></div>
-                    <div><img src="./RedStore_Img/images/gallery-4.jpg" alt="" class="detail"></div>
-                
-                </div>
             </div>
             <div class="right" style="width: 40%; padding-left: 30px; line-height: 35px;">
-                <p style="margin-top: auto;">Home / T-Shirt </p>
-                <h1>Red Prited T-Shirt</h1>
-                <h4>50$</h4>
-                <select name="" id="">
-                    <option value="">XXL</option>
-                    <option value="">XL</option>
-                    <option value="">L</option>
-                    <option value="">M</option>
-                    <option value="">S</option>
-                </select>
-                <br>
-                <input type="number" value="1" style="width: 30px;">
-                <button class="button" href="" type="button" id="btnn" style="    margin: 20px;
-                text-decoration: none;
-                border: 1px solid black;
-                border-radius: 10px;
-                padding: 6px;
-                background: coral;
-                color: antiquewhite; 
-            ">Add to Cart</button>
-                <h3>Product Details</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                    Fuga ipsa rerum dolore debitis corporis quae consequuntur in aliquid excepturi
-                     laboriosam aspernatur aut earum repudiandae e
-                     um perferendis laudantium, provident est iure.</p>
+               
 
             </div>
         </div>
         
         <div class="featuredproduct" style="margin-top: 100px;">
-          <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-<img src="./RedStore_Img/images/product-9.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
-<div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-<img src="./RedStore_Img/images/product-10.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
-<div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-<img src="./RedStore_Img/images/product-11.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
-<div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-<img src="./RedStore_Img/images/product-12.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
+          
 </div>
 
         </div>
@@ -164,5 +95,5 @@ color: #555;">Red Printed T-Shirt</h4></a>
 </div>
    
   </body>
-  <script src="./product_details.js"></script>
+  <script src="./product_details.js" type="module"></script>
 </html>

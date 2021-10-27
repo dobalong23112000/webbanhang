@@ -11,6 +11,21 @@
     />
 
     <link rel="stylesheet" href="./style.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
+    <script>
+  const firebaseApp = firebase.initializeApp({  
+    apiKey: "AIzaSyDCkDxI6XPE5k4Rt6xwVMFPjVI5Qwb3mWQ",
+    authDomain: "webshopping-a14ae.firebaseapp.com",
+    projectId: "webshopping-a14ae",
+    storageBucket: "webshopping-a14ae.appspot.com",
+    messagingSenderId: "373231907805",
+    appId: "1:373231907805:web:e0e29210966f0eaabc3c34" });
+   const db = firebaseApp.firestore();
+  const auth = firebaseApp.auth();
+</script>
+    <script src="../index.js" type="module"></script>
   </head>
   <body>
     <div class="header-container">
@@ -78,173 +93,18 @@
   border-radius: 15px;">Featured Product</span>
         </div>
         <div class="featuredproduct" style="margin-top: 100px;">
-          <div class="product" style="width: 20%;"><a href="./product_details.html" style="text-decoration: none;">
-            <img src="./RedStore_Img/images/product-1.jpg" alt="" style="width: 100%;">
-          <h4 style="font-weight: normal;
-          color: #555;">Red Printed T-Shirt</h4></a>
-          <div class="rating" style="color: #ff523b;">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-          <p class="price" style="font-size: 14px;">$50</p>
-        </div>
-        <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-          <img src="./RedStore_Img/images/product-2.jpg" alt="" style="width: 100%;">
-        <h4 style="font-weight: normal;
-        color: #555;">HRX Sports Shoes</h4></a>
-        <div class="rating" style="color: #ff523b;">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
-        <p class="price" style="font-size: 14px;">$75</p>
-      </div>
-      <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-        <img src="./RedStore_Img/images/product-3.jpg" alt="" style="width: 100%;">
-      <h4 style="font-weight: normal;
-      color: #555;">HRX Gray Trackpants</h4></a>
-      <div class="rating" style="color: #ff523b;">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
-      </div>
-      <p class="price" style="font-size: 14px;">$45</p>
-    </div>
-    <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-      <img src="./RedStore_Img/images/product-4.jpg" alt="" style="width: 100%;">
-    <h4 style="font-weight: normal;
-    color: #555;">Blue Printed T-Shirt</h4></a>
-    <div class="rating" style="color: #ff523b;">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-    <p class="price" style="font-size: 14px;">$50</p>
-  </div>
+         
         </div>
 
         
-        <div class="featured" style="    margin-top: 60px;
+      <div class="featured" style="margin-top: 60px;
         margin-bottom: 100px;">
           <span style="    border-bottom: 1px solid orange;
           border-width: thick; padding: 6px;
     border-radius: 15px;">Lastest Product</span>
       </div>
       <div class="featuredproduct" style="margin-top: 100px;">
-        <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-          <img src="./RedStore_Img/images/product-5.jpg" alt="" style="width: 100%;">
-        <h4 style="font-weight: normal;
-        color: #555;">Red Printed T-Shirt</h4></a>
-        <div class="rating" style="color: #ff523b;">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
-        <p class="price" style="font-size: 14px;">$50</p>
       </div>
-      <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-        <img src="./RedStore_Img/images/product-6.jpg" alt="" style="width: 100%;">
-      <h4 style="font-weight: normal;
-      color: #555;">Red Printed T-Shirt</h4></a>
-      <div class="rating" style="color: #ff523b;">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
-      </div>
-      <p class="price" style="font-size: 14px;">$50</p>
-    </div>
-    <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-      <img src="./RedStore_Img/images/product-7.jpg" alt="" style="width: 100%;">
-    <h4 style="font-weight: normal;
-    color: #555;">Red Printed T-Shirt</h4></a>
-    <div class="rating" style="color: #ff523b;">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-    <p class="price" style="font-size: 14px;">$50</p>
-  </div>
-  <div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-    <img src="./RedStore_Img/images/product-8.jpg" alt="" style="width: 100%;">
-  <h4 style="font-weight: normal;
-  color: #555;">Red Printed T-Shirt</h4></a>
-  <div class="rating" style="color: #ff523b;">
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="far fa-star"></i>
-  </div>
-  <p class="price" style="font-size: 14px;">$50</p>
-</div>
-<div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-  <img src="./RedStore_Img/images/product-9.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
-<div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-  <img src="./RedStore_Img/images/product-10.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
-<div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-  <img src="./RedStore_Img/images/product-11.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
-<div class="product" style="width: 20%;"><a href="" style="text-decoration: none;">
-  <img src="./RedStore_Img/images/product-12.jpg" alt="" style="width: 100%;">
-<h4 style="font-weight: normal;
-color: #555;">Red Printed T-Shirt</h4></a>
-<div class="rating" style="color: #ff523b;">
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="fas fa-star"></i>
-  <i class="far fa-star"></i>
-</div>
-<p class="price" style="font-size: 14px;">$50</p>
-</div>
-    </div>
    
 <div class="footer-parent">
   <div class="footer">
@@ -337,4 +197,5 @@ color: #555;">Red Printed T-Shirt</h4></a>
 </div>
    
   </body>
+  
 </html>

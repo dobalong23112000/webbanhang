@@ -1,37 +1,101 @@
-const btn = document.getElementsByClassName("button")[0];
-const under = document.getElementsByClassName("detail");
-const main = document.getElementsByClassName("main-detail")[0];
+import getProducts from "../getProducts.js";
 
-function objproduct(name, price, img) {
-  this.name = name;
-  this.price = price;
-  this.img = img;
+const product = JSON.parse(localStorage.getItem("clickproduct"));
+
+localStorage.removeItem("clickproduct");
+console.log(document.querySelector(".details"));
+let $leftdetails = document.querySelector(".left");
+
+$leftdetails.innerHTML = `
+<div class="main"><img src="${product.image.front}" alt="" style="width:100%;height: 500px;" class="main-detail"> </div>
+                
+<div class="under" style="width: 100%; display: flex;">
+    <div><img src="${product.image.front}" alt="" class="detail"></div>
+    <div><img src="${product.image.left}" alt="" class="detail"></div>
+    <div><img src="${product.image.right}" alt="" class="detail"></div>
+    <div><img src="${product.image.back}" alt="" class="detail"></div>
+
+</div>`;
+let $size = "";
+for (const key of product.size) {
+  $size += `<option value="${key}">${key}</option>`;
 }
-var obj;
+let $rightdetails = document.querySelector(".right");
 
-console.log(btn);
-for (let i = 0; i < under.length; i++) {
-  under[i].addEventListener("click", change);
-}
-function change(event) {
-  const change_img = event.target.src;
-
-  main.src = change_img;
-}
-btn.onclick = function (event) {
-  let but = event.target;
-
-  let but_parent = but.parentElement;
-  let but_grand = but_parent.parentElement;
-  let item_name = but_parent.children[1].innerText;
-  let item_price = but_parent.children[2].innerText;
-
-  let item_img = but_grand.children[0].children[0].children[0].src;
-  obj = new objproduct(`${item_name}`, `${item_price}`, `${item_img}`);
-
-  var x = JSON.parse(localStorage.getItem(`product`)) || [];
-  x.push(obj);
-  localStorage.setItem(`product`, JSON.stringify(x));
-
-  alert("Da them san pham vao gio hang");
+$rightdetails.innerHTML = `
+<p style="margin-top: auto;">Home / ${product.clothing} </p>
+                <h1>${product.name}</h1>
+                <h4>${product.price}</h4>
+                <select name="" id="">
+                    ${$size}
+                </select>
+                <br>
+                <input type="number" value="1" style="width: 30px;">
+                <button class="button" href="" type="button" id="btnn" style="    margin: 20px;
+                text-decoration: none;
+                border: 1px solid black;
+                border-radius: 10px;
+                padding: 6px;
+                background: coral;
+                color: white; 
+            ">Add to Cart</button>
+                <h3>Product Details</h3>
+                <p>${product.description}</p>
+`;
+document.querySelector(".details").append($leftdetails, $rightdetails);
+document.querySelector("button").onclick = (e) => {
+  if (localStorage.getItem("chosen")) {
+    let chosens = JSON.parse(localStorage.getItem("chosen"));
+    chosens.push({
+      ...product,
+      size: `${document.querySelector("select").value}`,
+      quantity: `${document.querySelector("input").value}`,
+    });
+    localStorage.setItem("chosen", JSON.stringify(chosens));
+  } else {
+    localStorage.setItem(
+      "chosen",
+      JSON.stringify([
+        {
+          ...product,
+          size: `${document.querySelector("select").value}`,
+          quantity: `${document.querySelector("input").value}`,
+        },
+      ])
+    );
+  }
+  alert("Them san pham thanh cong");
 };
+async function getData() {
+  let products = await getProducts();
+  let $featuredproduct = document.querySelector(".featuredproduct");
+  products.forEach((productFeatured) => {
+    if (productFeatured.product === "featured") {
+      let $product = document.createElement("div");
+      $product.className = "product";
+      $product.style.width = "20%";
+      $product.innerHTML = `<a href="#" style="text-decoration: none;"><img src="${productFeatured.image.front}" alt="" style="width: 100%;">
+        <h4 style="font-weight: normal;
+        color: #555;">${productFeatured.name}</h4></a>
+        <div class="rating" style="color: #ff523b;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p class="price" style="font-size: 14px;">${productFeatured.price}</p>`;
+      $featuredproduct.appendChild($product);
+      $product.onclick = (e) => {
+        e.preventDefault();
+        localStorage.setItem(
+          "clickproduct",
+          JSON.stringify({ ...productFeatured })
+        );
+
+        window.location.href = "./product_details.html";
+      };
+    }
+  });
+}
+getData();

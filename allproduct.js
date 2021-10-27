@@ -1,22 +1,80 @@
-const allproduct = document.getElementsByClassName("featuredproduct")[0];
+import getProducts from "../getProducts.js";
+let handeOnclick = (product) => {
+  localStorage.setItem("clickproduct", JSON.stringify({ ...product }));
+  window.location.href = "./product_details.html";
+};
+async function AllProducts() {
+  let products = await getProducts();
+  let $featuredproducts = document.querySelector(".featuredproduct");
+  let $select = document.querySelector("select");
 
-axios.get("https://sheetdb.io/api/v1/knnlu7c5v0ob5").then((response) => {
-  const data = response.data;
-  for (let i = 0; i < data.length; i++) {
-    const new_product = document.createElement("div");
-    new_product.setAttribute("class", "product");
+  products.forEach((product) => {
+    let $product = document.createElement("div");
+    $product.className = "product";
+    $product.style.width = "20%";
+    $product.innerHTML = `<a href="#" style="text-decoration: none;"><img src="${product.image.front}" alt="" style="width: 100%;">
+        <h4 style="font-weight: normal;
+        color: #555;">${product.name}</h4></a>
+        <div class="rating" style="color: #ff523b;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p class="price" style="font-size: 14px;">${product.price}</p>`;
+    $product.onclick = (e) => {
+      e.preventDefault();
+      handeOnclick(product);
+    };
+    $featuredproducts.appendChild($product);
+  });
 
-    new_product.innerHTML = `<a href="./product_details.html" style="text-decoration: none;"><img src="${data[i].img}" alt="" style="width: 100%;">
-    <h4 style="font-weight: normal;
-    color: #555;">${data[i].name}</h4></a>
-    <div class="rating" style="color: #ff523b;">
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="far fa-star"></i>
-    </div>
-    <p class="price" style="font-size: 14px;">${data[i].price}</p>`;
-    allproduct.appendChild(new_product);
-  }
-});
+  $select.onchange = (e) => {
+    $featuredproducts.innerHTML = "";
+    products.forEach((product) => {
+      if (product.clothing === e.target.value) {
+        let $product = document.createElement("div");
+        $product.className = "product";
+        $product.style.width = "20%";
+        $product.innerHTML = `<a href="#" style="text-decoration: none;"><img src="${product.image.front}" alt="" style="width: 100%;">
+        <h4 style="font-weight: normal;
+        color: #555;">${product.name}</h4></a>
+        <div class="rating" style="color: #ff523b;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p class="price" style="font-size: 14px;">${product.price}</p>`;
+        $product.onclick = (e) => {
+          e.preventDefault();
+          handeOnclick(product);
+        };
+        $featuredproducts.appendChild($product);
+      } else if (e.target.value === "all") {
+        let $product = document.createElement("div");
+        $product.className = "product";
+        $product.style.width = "20%";
+        $product.innerHTML = `<a href="#" style="text-decoration: none;"><img src="${product.image.front}" alt="" style="width: 100%;">
+        <h4 style="font-weight: normal;
+        color: #555;">${product.name}</h4></a>
+        <div class="rating" style="color: #ff523b;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p class="price" style="font-size: 14px;">${product.price}</p>`;
+        $product.onclick = (e) => {
+          e.preventDefault();
+          handeOnclick(product);
+        };
+        $featuredproducts.appendChild($product);
+      }
+    });
+  };
+}
+AllProducts();
