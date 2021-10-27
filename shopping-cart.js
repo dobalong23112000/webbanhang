@@ -1,4 +1,4 @@
-import getData from "../getAddress.js";
+import getData from "./getAddress.js";
 
 const body = document.getElementsByTagName("tbody")[0];
 const btn = document.getElementsByClassName("btn");

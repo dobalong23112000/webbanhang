@@ -1,4 +1,4 @@
-import getProducts from "../getProducts.js";
+import getProducts from "./getProducts.js";
 let handeOnclick = (product) => {
   localStorage.setItem("clickproduct", JSON.stringify({ ...product }));
   window.location.href = "./product_details.html";

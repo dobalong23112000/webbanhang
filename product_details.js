@@ -1,4 +1,4 @@
-import getProducts from "../getProducts.js";
+import getProducts from "./getProducts.js";
 
 const product = JSON.parse(localStorage.getItem("clickproduct"));
 
