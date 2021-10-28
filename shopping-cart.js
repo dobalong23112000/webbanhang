@@ -1,4 +1,5 @@
 import getData from "./getAddress.js";
+import Footer from "./footer.js";
 
 const body = document.getElementsByTagName("tbody")[0];
 const btn = document.getElementsByClassName("btn");
@@ -34,11 +35,12 @@ for (let i = 0; i < JSON.parse(localStorage.getItem(`chosen`)).length; i++) {
 <span>${JSON.parse(localStorage.getItem(`chosen`))[i].quantity}</span>
   
 </td>
+<td class="size">${JSON.parse(localStorage.getItem(`chosen`))[i].size}</td>
 <td class="total">${
     parseInt(JSON.parse(localStorage.getItem(`chosen`))[i].price) *
     parseInt(JSON.parse(localStorage.getItem(`chosen`))[i].quantity)
   }$</td>
-  <td class="size">${JSON.parse(localStorage.getItem(`chosen`))[i].size}</td>
+
 `;
   body.appendChild(row);
 }
@@ -55,6 +57,7 @@ function remove_btn(event) {
   x.splice(0, 1);
   localStorage.setItem(`chosen`, JSON.stringify(x));
   grand_total();
+  $sum.innerText = document.querySelector(".totalprice").innerText;
 }
 
 function grand_total() {
@@ -116,6 +119,7 @@ function Purchase() {
     phonenumber: "",
     totalprice: "",
     products: [],
+    subtotal: "",
   };
   purchase.onclick = (e) => {
     let products = setData.products;
@@ -156,8 +160,10 @@ function Purchase() {
     setData = {
       ...setData,
       address: address,
-      totalprice: document.querySelector(".totalprice").innerText,
+      totalprice: document.querySelector("#sum").innerText,
+      subtotal: document.querySelector(".totalprice").innerText,
     };
+
     if (!isPassed) {
       alert("Thong tin nhap chua day du");
     } else {
@@ -172,3 +178,29 @@ function Purchase() {
   };
 }
 Purchase();
+let $discount = document.querySelector("#discount");
+let $sum = document.querySelector("#sum");
+$sum.innerText = document.querySelector(".totalprice").innerText;
+$discount.onchange = (e) => {
+  let totalprice = parseInt(
+    document.querySelector(".totalprice").innerText.replace("$", "")
+  );
+
+  let sum;
+  let discount = "";
+  console.log(totalprice);
+  switch (e.target.value) {
+    case "HN10":
+      sum = totalprice * (1 - 0.01);
+      discount = "-10%";
+      break;
+    case "HN20":
+      sum = totalprice * (1 - 0.02);
+      discount = "-20%";
+      break;
+    default:
+      sum = totalprice;
+  }
+  $sum.innerHTML = sum + "$";
+};
+document.querySelector(".brand").append(Footer());

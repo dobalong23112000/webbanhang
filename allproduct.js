@@ -1,3 +1,4 @@
+import Footer from "./footer.js";
 import getProducts from "./getProducts.js";
 let handeOnclick = (product) => {
   localStorage.setItem("clickproduct", JSON.stringify({ ...product }));
@@ -78,3 +79,4 @@ async function AllProducts() {
   };
 }
 AllProducts();
+document.querySelector(".brand").append(Footer());

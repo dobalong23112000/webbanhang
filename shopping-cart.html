@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -42,8 +43,8 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./allproduct.html">Product</a></li>
             <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Account</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+
             <li>
               <a href=""><i class="fas fa-shopping-bag"></i></a>
             </li>
@@ -58,8 +59,8 @@
           <th colspan="2">Items</th>
 
           <th>Quatity</th>
-          <th>Total</th>
           <th>Size</th>
+          <th>Total</th>
         </tr>
       </thead>
 
@@ -67,9 +68,40 @@
 
       <tfoot>
         <tr>
-          <th>Total Price</th>
+          <th>Subtotal</th>
+
           <th colspan="3" class="totalprice" style="width: fit-content">0$</th>
-          <th><button class="purchase">Thanh toán</button></th>
+
+          <th>
+            <button
+              class="purchase"
+              style="position: absolute; margin-top: 135px"
+            >
+              Thanh toán
+            </button>
+          </th>
+        </tr>
+        <tr>
+          <th>Discount</th>
+          <th colspan="3" style="width: fit-content; text-align: center">
+            <input
+              id="discount"
+              type="text"
+              placeholder="Discount"
+              style="padding: 10px"
+            />
+          </th>
+        </tr>
+        <tr>
+          <th>Total Price</th>
+
+          <th
+            colspan="3"
+            id="sum"
+            style="width: fit-content; text-align: center"
+          >
+            0$
+          </th>
         </tr>
       </tfoot>
     </table>
@@ -119,14 +151,7 @@
         </div>
       </div>
     </form>
-    <div class="brand" style="margin-top: 220px">
-      <img src="./RedStore_Img/images/logo-coca-cola.png" alt="" />
-      <img src="./RedStore_Img/images/logo-godrej.png" alt="" />
-      <img src="./RedStore_Img/images/logo-oppo.png" alt="" />
-      <img src="./RedStore_Img/images/logo-paypal.png" alt="" />
-      <img src="./RedStore_Img/images/logo-philips.png" alt="" />
-      <img src="./RedStore_Img/images/logo-white.png" alt="" />
-    </div>
+    <div class="brand" style="margin-top: 220px"></div>
   </body>
   <script src="./shopping-cart.js" type="module"></script>
 </html>

@@ -1,3 +1,4 @@
+import Footer from "./footer.js";
 import getProducts from "./getProducts.js";
 async function main() {
   let products = await getProducts();
@@ -56,3 +57,4 @@ async function main() {
   });
 }
 main();
+document.querySelector(".brand").append(Footer());

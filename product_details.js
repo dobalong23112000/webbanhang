@@ -1,4 +1,5 @@
 import getProducts from "./getProducts.js";
+import Footer from "./footer.js";
 
 const product = JSON.parse(localStorage.getItem("clickproduct"));
 
@@ -99,3 +100,4 @@ async function getData() {
   });
 }
 getData();
+document.querySelector(".brand").append(Footer());
